@@ -1,0 +1,132 @@
+/* memory_game.css - Responsive Memory Game Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #ffffff;
+}
+header {
+  text-align: center;
+  height: 37px;
+  background: #78b41b;
+  color: #fff;
+}
+#score-container {
+  font-size: 1.2rem;
+}
+#restart-btn {
+  font-size: 1rem;
+  background: #fff;
+  color: #1976d2;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#restart-btn {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#restart-btn:hover {
+  background: #1976d2;
+  color: #fff;
+  transform: scale(1.12);
+  box-shadow: 0 4px 16px rgba(120, 180, 27, 0.18), 0 1.5px 8px rgba(25, 118, 210, 0.16);
+  border: none;
+}
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.card {
+  aspect-ratio: 1 / 1;
+  height: auto;
+  min-width: 0;
+}
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  height: 100px;
+  position: relative;
+  perspective: 800px;
+  cursor: pointer;
+}
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+.card-front {
+  background: #e3e3e3;
+}
+.card-back {
+  background: #1976d2;
+  color: #fff;
+  transform: rotateY(180deg);
+}
+@media (max-width: 600px) {
+  #game-board {
+    max-width: 95vw;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  }
+  .card {
+    height: 60px;
+  }
+}
+
+#victory-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.victory-content {
+  background: #fff;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+  text-align: center;
+}
+.victory-content h2 {
+  margin-top: 20px;
+  color: #78b41b;
+}
+.victory-content button {
+  margin-top: 1.5rem;
+  padding: 0.5rem 2rem;
+  font-size: 1.1rem;
+  background: #78b41b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

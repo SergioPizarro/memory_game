@@ -1,0 +1,15 @@
+<%# app/views/games/index.html.erb %>
+<header>
+</header>
+<div style="text-align: center;">
+  <img style="width: 160px; height: auto;" src="<%= asset_path('Inuvet_Logo_Screen.png') %>" alt="Memory Game">
+</div>
+<div style="display: flex; justify-content: space-around; margin-left: 15%; margin-right: 15%;">
+  <button style="text-align: center; background-color: #78b41b; color: #fff; hover:" id="restart-btn">Neu Starten</button>
+  <div style="text-align: center;" id="score-container">Züge: <span id="score">0</span></div>
+</div>
+
+<main>
+  <section id="game-board"></section>
+</main>
+<%= javascript_include_tag 'memory_game' %>
